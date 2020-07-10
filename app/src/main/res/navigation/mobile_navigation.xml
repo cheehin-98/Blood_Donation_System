@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_donor_event"
+        android:name="com.example.blooddonationsystem.ui.donor_event.EventFragment"
+        android:label="Event"
+        tools:layout="@layout/fragment_event_donor" />
+
+    <!--   <fragment
+        android:id="@+id/nav_my_activity"
+        android:name="com.example.finalyearproject.ui.donor_event.GalleryFragment"
+        android:label="My Activity" />-->
+
+    <fragment
+        android:id="@+id/nav_donor_notification"
+        android:name="com.example.blooddonationsystem.ui.donor_notification.DonorNotificationFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_donor_notification" />
+
+    <!--  <fragment
+        android:id="@+id/nav_find_blood_drive"
+        android:name="com.example.finalyearproject.ui.donor_find_blood_drive.ShareFragment"
+        android:label="@string/menu_tools" />
+-->
+    <fragment
+        android:id="@+id/nav_donor_chat"
+        android:name="com.example.blooddonationsystem.ui.donor_real_time_chat.DonorRealTimeChatFragment"
+        android:label="Real Time Chat"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_donor_logout"
+        android:name="com.example.blooddonationsystem.ui.donor_logout.DonorLogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_donor_logout" />
+    <fragment
+        android:id="@+id/nav_find_blood_drive"
+        android:name="com.example.blooddonationsystem.ui.donor_find_blood_drive.FindBloodDriveFragment"
+        android:label="Find Blood Drive"
+        tools:layout="@layout/fragment_donor_find_blood_drive" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.blooddonationsystem.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_my_activity"
+        android:name="com.example.blooddonationsystem.ui.donor_my_activity.MyActivityFragment"
+        android:label="My Activity"
+        tools:layout="@layout/fragment_myactivity_joining_event_listview" />
+</navigation>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single" android:id="@+id/login_page" android:visible="true">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_input_red_24dp"
+            android:title="Login" />
+    </group>
+    <group
+        android:id="@+id/donor_navigate"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_donor_event"
+            android:icon="@drawable/ic_event_note_black_24dp"
+            android:title="Event" />
+        <item
+            android:id="@+id/nav_my_activity"
+            android:icon="@drawable/ic_access_time_black_24dp"
+            android:title="My Activity" />
+        <item
+            android:id="@+id/nav_donor_notification"
+            android:icon="@drawable/ic_notifications_active_black_24dp"
+            android:title="Notification" />
+        <item
+            android:id="@+id/nav_find_blood_drive"
+            android:icon="@drawable/ic_find_in_page_black_24dp"
+            android:title="Find Blood Drive" />
+        <item
+            android:id="@+id/nav_donor_chat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="Real Time Chat" />
+        <item
+            android:id="@+id/nav_donor_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Logout" />
+    </group>
+
+    <group
+        android:id="@+id/organizer_navigate"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_organizer_event"
+            android:icon="@drawable/ic_event_note_black_24dp"
+            android:title="Event" />
+        <item
+            android:id="@+id/nav_organizer_notification"
+            android:icon="@drawable/ic_notifications_active_black_24dp"
+            android:title="Notification" />
+        <item
+            android:id="@+id/nav_organizer_real_time_chat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="Real Time Chat" />
+        <item
+            android:id="@+id/nav_organizer_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Logout" />
+    </group>
+
+    <group android:checkableBehavior="single" android:id="@+id/menu_details" android:visible="true" >
+        <item
+            android:id="@+id/menu_details_about_us"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="About Us" />
+        <item
+            android:id="@+id/menu_setting_UserGuide"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="User Guide" />
+        <item
+            android:id="@+id/menu_details_rules"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Rules and Regulations" />
+
+    </group>
+</menu>

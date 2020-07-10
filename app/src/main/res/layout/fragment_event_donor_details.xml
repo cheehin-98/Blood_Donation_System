@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header_event_donor_details"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/toolbar_color_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_back_button_event_donor_details"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Event Details"
+                android:textColor="@color/design_default_color_background"
+                android:textSize="28dp"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/donor_event_details_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/event_poster"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_image_black_24dp" />
+
+            <TextView
+                android:id="@+id/event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Event Title"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_poster" />
+
+            <TextView
+                android:id="@+id/event_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Event ID:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toStartOf="@+id/id_number_event"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_title" />
+
+            <TextView
+                android:id="@+id/id_number_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="EV0001"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toEndOf="@+id/event_id"
+                app:layout_constraintTop_toBottomOf="@+id/event_title" />
+
+            <TextView
+                android:id="@+id/organizer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Organizer Name"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toStartOf="@+id/event_organizer_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_id" />
+
+            <TextView
+                android:id="@+id/event_organizer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Vincent Liew"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toEndOf="@+id/organizer_name"
+                app:layout_constraintTop_toBottomOf="@+id/id_number_event" />
+
+            <TextView
+                android:id="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Date:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toStartOf="@+id/event_date_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/organizer_name" />
+
+            <TextView
+                android:id="@+id/event_date_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:inputType="date"
+                android:text="13/6/2020 - 14/6/2020"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toEndOf="@+id/event_date"
+                app:layout_constraintTop_toBottomOf="@+id/event_organizer_name" />
+
+            <TextView
+                android:id="@+id/event_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Time:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toStartOf="@+id/event_time_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_date" />
+
+            <TextView
+                android:id="@+id/event_time_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:inputType="time"
+                android:text="8.00 - 10.00"
+                app:layout_constraintStart_toEndOf="@+id/event_time"
+                app:layout_constraintTop_toBottomOf="@+id/event_date_details" />
+
+            <TextView
+                android:id="@+id/event_venue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Venue:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toStartOf="@+id/event_venue_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_time" />
+
+            <TextView
+                android:id="@+id/event_venue_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Columbia Asia Hospital"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toEndOf="@+id/event_venue"
+                app:layout_constraintTop_toBottomOf="@+id/event_time_details" />
+
+            <TextView
+                android:id="@+id/event_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Address:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_venue" />
+
+            <TextView
+                android:id="@+id/event_address_details"
+                android:layout_width="304dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Kampus Utama, Jalan Genting Kelang, 53300 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur."
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_address" />
+
+            <ImageView
+                android:id="@+id/event_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/event_address_details"
+                app:layout_constraintTop_toBottomOf="@+id/event_address"
+                app:srcCompat="@drawable/ic_directions_black_24dp" />
+
+            <TextView
+                android:id="@+id/event_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Contact:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_address_details" />
+
+            <TextView
+                android:id="@+id/event_contact_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:inputType="phone"
+                android:text="0123456789"
+                app:layout_constraintStart_toEndOf="@+id/event_contact"
+                app:layout_constraintTop_toBottomOf="@+id/event_address_details" />
+
+            <TextView
+                android:id="@+id/event_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Description:"
+                android:textColor="@color/toolbar_color_header"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_contact" />
+
+            <TextView
+                android:id="@+id/event_description_details"
+                android:layout_width="296dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Please donate blood to our blood bank, Thank You."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/event_description"
+                app:layout_constraintTop_toBottomOf="@+id/event_contact_number" />
+
+            <ToggleButton
+                android:id="@+id/toggle_event_favourite_button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="16dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/toggle_selector_favourite_event"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_description_details" />
+
+            <ToggleButton
+                android:id="@+id/toggle_event_join_button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/toggle_selector_join_event"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_description_details" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+</LinearLayout>

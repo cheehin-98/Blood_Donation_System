@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header_donor_registration_blood_type"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_color_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_back_button_blood_type"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+            <TextView
+                android:id="@+id/text_donor_registration_blood_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Donor Registration"
+                android:textColor="@color/design_default_color_background"
+                android:textSize="24sp"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/donor_registration_content_blood_type"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/blood_type_title"
+                android:layout_width="350dp"
+                android:layout_height="98dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:text="What's your blood type?"
+                android:textSize="36sp"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view13"
+                android:layout_width="345dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/toolbar_color_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blood_type_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/donor_blood_type_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="310dp">
+
+            <RadioButton
+                android:id="@+id/radio_button_blood_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="180dp"
+                android:layout_marginBottom="20dp"
+                android:checked="true"
+                android:onClick="checkBloodType"
+                android:text="A"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/radio_button_blood_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="180dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="checkBloodType"
+                android:text="B"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/radio_button_blood_ab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="180dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="checkBloodType"
+                android:text="AB"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/radio_button_blood_o"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="180dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="checkBloodType"
+                android:text="O"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/radio_button_empty_blood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="checkBloodType"
+                android:text="No Idea"
+                android:textColor="@color/toolbar_color_header"
+                android:textSize="30sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_next_blood_type"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/toolbar_color_header"
+            android:gravity="center"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/design_default_color_background"
+            android:textSize="24sp" />
+    </LinearLayout>
+</LinearLayout>
