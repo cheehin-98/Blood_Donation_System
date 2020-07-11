@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -57,9 +58,6 @@ public class DonorRegisterBirthdayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                //Toast.makeText(getApplicationContext(), " USerTpe : " + userType, Toast.LENGTH_SHORT).show();
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         DonorRegisterBirthdayActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth
                         , setListener, year, month, day);
@@ -72,17 +70,19 @@ public class DonorRegisterBirthdayActivity extends AppCompatActivity {
 
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                //Log.d(TAG, "onDateSet: date mm/dd/yyy: "+ month + "/" + day + "/" + year);
                     month = month + 1;
-                    String date = day+"/"+month+"/"+year;
+                    String date = month+ "/" +day +"/"+ year;
                     selectDate.setText(date);
-                    Birthday = day+"/"+month+"/"+year;
+                    Birthday = date;
             }
         };
 
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 NextDonorRegisterScreen();
             }
         });

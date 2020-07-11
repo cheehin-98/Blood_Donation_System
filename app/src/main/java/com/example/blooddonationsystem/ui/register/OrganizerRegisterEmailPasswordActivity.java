@@ -68,10 +68,6 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
     private ProgressBar progressBarOrganizerRegister;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    //FirebaseStorage storage;
-    Uri dataUri;
-
-    StorageReference storageReference;
 
     String userType;
     String organizerName;
@@ -86,9 +82,8 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
     String organizerImage;
     String UserID;
 
-    private StorageTask uploadTask;
-    Uri imageUri;
-    StorageReference mstorage;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,13 +97,8 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
         progressBarOrganizerRegister = findViewById(R.id.progressBarOrganizerRegister);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        //storage = FirebaseStorage.getInstance();
         text_edit_organizer_email.addTextChangedListener(NextPage);
         text_edit_organizer_password.addTextChangedListener(NextPage);
-
-
-
-        mstorage = FirebaseStorage.getInstance().getReference("Images");
 
       /*  if (mAuth.getCurrentUser() !=null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -132,19 +122,6 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
               final String organizerEmail = text_edit_organizer_email.getText().toString().trim();
               final String organizerPassword = text_edit_organizer_password.getText().toString().trim();
-              userType = getIntent().getExtras().get("userType").toString();
-              organizerName = getIntent().getExtras().get("organizerName").toString();
-              organizerContact = getIntent().getExtras().get("organizerContact").toString();
-              organizerAddressLine1 = getIntent().getExtras().get("organizerAddressLine1").toString();
-              organizerAddressLine2= getIntent().getExtras().get("organizerAddressLine2").toString();
-              organizerCity = getIntent().getExtras().get("organizerCity").toString();
-              organizerState = getIntent().getExtras().get("organizerState").toString();
-              organizerCountry = getIntent().getExtras().get("organizerCountry").toString();
-              organizerZipCode = getIntent().getExtras().get("organizerZipCode").toString();
-              organizerUsername = getIntent().getExtras().get("organizerUsername").toString();
-              organizerImage = getIntent().getExtras().get("organizerImage").toString();
-
-
 
                 progressBarOrganizerRegister.setVisibility(View.VISIBLE);
 
@@ -224,11 +201,6 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
             }
         });
 
-    }
-    private String getExtension(Uri uri) {
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
     }
 
     public void confirmInput(View view) {

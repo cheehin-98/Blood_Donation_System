@@ -70,7 +70,7 @@ public class OrganizerRegisterProfilePictureActivity extends AppCompatActivity {
         organizerZipCode = getIntent().getExtras().get("organizerZipCode").toString();
         organizerUsername = getIntent().getExtras().get("organizerUsername").toString();
 
-        storage = FirebaseStorage.getInstance().getReference("Images");
+        storage = FirebaseStorage.getInstance().getReference(" Organizer Images");
 
 
         buttonNext.setOnClickListener(new View.OnClickListener() {
