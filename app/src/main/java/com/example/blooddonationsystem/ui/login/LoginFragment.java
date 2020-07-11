@@ -80,7 +80,19 @@ public class LoginFragment extends Fragment {
                      @Override
                      public void onComplete(@NonNull Task<AuthResult> task) {
                          if (task.isSuccessful()){
+
+                             // snapshort currentuser id - follow youtbe
+                             /*
+                              * if(task.issuccful)
+                              * {
+                              *       Intent intent   = new Intent(this, MainActivity.class);
+                                         intent.putExtra("currentuserid", currentuserid);
+                               *  startActivity(new Intent(getActivity(), MainActivity.class));
+                              * }
+                              */
+
                              Toast.makeText(LoginFragment.this.getActivity(), "Login Successfully!", Toast.LENGTH_SHORT).show();
+                             // intent currentuserid
                              startActivity(new Intent(getActivity(), MainActivity.class));
                          }else {
                              Toast.makeText(LoginFragment.this.getActivity(), "Error Occur." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

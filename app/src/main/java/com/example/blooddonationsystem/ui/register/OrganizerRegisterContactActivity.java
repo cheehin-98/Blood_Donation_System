@@ -93,9 +93,9 @@ public class OrganizerRegisterContactActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String donorContact = text_edit_organizer_contact.getText().toString().trim();
+            String organizerContact = text_edit_organizer_contact.getText().toString().trim();
             validateContact();
-            buttonNextPage.setEnabled(!donorContact.isEmpty());
+            buttonNextPage.setEnabled(!organizerContact.isEmpty());
 
 
         }
