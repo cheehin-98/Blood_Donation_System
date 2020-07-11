@@ -1,6 +1,7 @@
 package com.example.blooddonationsystem.ui.register;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.nfc.Tag;
@@ -13,6 +14,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -37,6 +39,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,8 +68,10 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
     private ProgressBar progressBarOrganizerRegister;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    FirebaseStorage storage;
-    private Uri dataUri;
+    //FirebaseStorage storage;
+    Uri dataUri;
+
+    StorageReference storageReference;
 
     String userType;
     String organizerName;
@@ -77,9 +84,11 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
     String organizerZipCode;
     String organizerUsername;
     String organizerImage;
-    String UserID, colletion;
+    String UserID;
 
-    private FirebaseFirestore firebaseFirestore;
+    private StorageTask uploadTask;
+    Uri imageUri;
+    StorageReference mstorage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,10 +102,13 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
         progressBarOrganizerRegister = findViewById(R.id.progressBarOrganizerRegister);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        storage = FirebaseStorage.getInstance();
+        //storage = FirebaseStorage.getInstance();
         text_edit_organizer_email.addTextChangedListener(NextPage);
         text_edit_organizer_password.addTextChangedListener(NextPage);
-        dataUri = Uri.EMPTY;
+
+
+
+        mstorage = FirebaseStorage.getInstance().getReference("Images");
 
       /*  if (mAuth.getCurrentUser() !=null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -113,6 +125,7 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
         organizerZipCode = getIntent().getExtras().get("organizerZipCode").toString();
         organizerUsername = getIntent().getExtras().get("organizerUsername").toString();
         organizerImage = getIntent().getExtras().get("organizerImage").toString();
+
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +159,7 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
                             user.put("UserType", userType);
                             user.put("OrganizerEmail", organizerEmail);
                             user.put("OrganizerName", organizerName);
+                            user.put("OrganizerUsername", organizerUsername);
                             user.put("OrganizerContact", organizerContact);
                             user.put("OrganizerAddressLine1", organizerAddressLine1);
                             user.put("OrganizerAddressLine2", organizerAddressLine2);
@@ -154,7 +168,6 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
                             user.put("OrganizerCountry", organizerCountry);
                             user.put("OrganizerZipCode", organizerZipCode);
                             user.put("OrganizerImage", organizerImage);
-
 
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -167,14 +180,29 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
                                     Log.d(TAG, "onFailure: " + e.toString());
                                 }
                             });
+
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         }else {
                             Toast.makeText(OrganizerRegisterEmailPasswordActivity.this, "Error Occur." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBarOrganizerRegister.setVisibility(View.GONE);
                         }
+                       /* db.collection("User Type").document(UserID).set(userType).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                    if (dataUri !=Uri.EMPTY){
+                                         StorageReference imagesRef = storageRef.child("images");
+                                        StorageReference   storageRef = storage.getReference().child("User Type" + UserID);
+                                        StorageReference profileRef = storageRef.child("profile.jpg");
+                                        profileRef.putFile(dataUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                Toast.makeText(OrganizerRegisterEmailPasswordActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });*/
+
                     }
                 });
-                Register();
+                //Register();
                 Log.e("INFO", "Organizer " + userType);
                 Log.e("INFO", "Organizer Name " + organizerName);
                 Log.e("INFO", "Organizer Contact " + organizerContact);
@@ -197,6 +225,12 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
         });
 
     }
+    private String getExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    }
+
     public void confirmInput(View view) {
         if (!validateEmail() | !validatePassword()) {
             return;
@@ -262,7 +296,6 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
             onBackPressed();
     }
 
-
         private void Register(){
             Intent intent   = new Intent(this, MainActivity.class);
             intent.putExtra("userType", userType);
@@ -278,4 +311,5 @@ public class OrganizerRegisterEmailPasswordActivity extends AppCompatActivity {
             intent.putExtra("organizerImage", organizerImage);
             startActivity(intent);
         }
+
 }

@@ -36,11 +36,12 @@ public class LoginFragment extends Fragment {
     private Button buttonRegister;
     private TextInputEditText edit_email;
     private TextInputEditText edit_password;
-    private FirebaseAuth mAuth;
     private TextInputLayout inputEmail;
     private TextInputLayout inputPassword;
     private ProgressBar progressBarLogin;
-    private FirebaseFirestore db;
+    FirebaseAuth mAuth;
+    FirebaseFirestore db;
+
 
 
     @Override

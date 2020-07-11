@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blooddonationsystem.R;
 import com.google.firebase.firestore.auth.User;
+import com.google.firebase.storage.StorageReference;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,6 +31,7 @@ public class DonorRegisterProfilePictureActivity extends AppCompatActivity {
     private String FullName;
     private String Username;
     private String Image;
+    StorageReference storage;
 
     public static final int IMAGE_CODE = 1;
 
